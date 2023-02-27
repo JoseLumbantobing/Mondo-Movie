@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import './App.css';
 import SearchIcon from './search.svg';
+import MovieCard from "./component/MovieCard";
 
 const API_KEY = 'http://www.omdbapi.com/?apikey=f7b5edc8';
 
@@ -34,18 +35,7 @@ const App = () => {
             </div>
 
             <div className="movie-container">
-                <div className="movie">
-                    <div>
-                        <p>{movie.Year}</p>
-                    </div>
-                    <div>
-                        <img src={movie.Poster} alt={movie.Title} />
-                    </div>
-                    <div>
-                        <span>{movie.Type}</span>
-                        <h3>{movie.Title}</h3>
-                    </div>
-                </div>
+                <MovieCard movie={movie} />
             </div>
         </div>
     );
