@@ -69,12 +69,13 @@ body {
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 2px rgba(255, 255, 255, .5);
+    cursor: pointer;
     margin: 1rem;
     overflow: hidden;
     position: relative;
     transition: all .3s;
     aspect-ratio: 1 / 1.5;
-    width: 260px;
+    width: 300px;
 }
 
 .movie:hover {
@@ -83,14 +84,14 @@ body {
 }
 
 .movie div:nth-of-type(1) {
-    color: rgba(199, 112, 20, .8);
+    background-color: rgba(0, 0, 0, .8);
+    background-clip: content-box;
+    color: crimson;
     opacity: 0;
     padding: 1.2rem 1rem;
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
 }
 
 .movie:hover div:nth-of-type(1) {
@@ -131,6 +132,18 @@ body {
     background-color: rgba(91, 91, 91, .5);
 }
 
+.not-found h2 {
+    background-color: rgba(255,255,255,.8);
+    border-radius: 10px;
+    font-family: Raleway, sans-serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    width: 90vw;
+}
+
 @media screen and (min-width:760px) {
     .movie-app {
         padding: 2rem 3rem;
@@ -148,10 +161,6 @@ body {
 
     .search-bar input {
         font-size: 1.1rem;
-    }
-
-    .movie-container {
-        justify-content: flex-start;
     }
 
     .movie {
@@ -178,18 +187,6 @@ body {
     }
 
     .movie {
-        width: 300px;
+        width: 260px;
     }
 }
-
-/* .movie-container h2 {
-    background-color: rgba(255,255,255,.8);
-    border-radius: 10px;
-    font-family: Raleway, sans-serif;
-    font-size: 2rem;
-    font-style: italic;
-    font-weight: 600;
-    margin-top: 1rem;
-    padding: 1rem 2rem;
-    width: 90vw;
-} */
