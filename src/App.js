@@ -27,6 +27,14 @@ const App = () => {
         setMovies(data.Search);
     }
 
+    const handleKey = (e) => {
+        if(e.key==="Enter") {
+            searchMovies(search);
+        } else {
+            return;
+        }
+    }
+
     return (
         <div className="movie-app">
             <h1>MondoMovies</h1>
@@ -35,6 +43,7 @@ const App = () => {
                 <input 
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
+                    onKeyUp={(e) => handleKey(e)}
                     placeholder="Search movies..." />
                 <img 
                     src={SearchIcon} 
