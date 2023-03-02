@@ -3,7 +3,9 @@ import './App.css';
 import SearchIcon from './search.svg';
 import MovieCard from "./component/MovieCard";
 
-const API_KEY = 'http://www.omdbapi.com/?apikey=f7b5edc8';
+// const API_KEY = 'http://www.omdbapi.com/?apikey=f7b5edc8';
+// const API_KEY = 'https://api.themoviedb.org/3/movie/550?api_key=097732c509350f650f597a8e0fae68b8';
+const API_KEY = 'https://api.themoviedb.org/3/movie/popular?api_key=097732c509350f650f597a8e0fae68b8';
 
 // const movie = {
 //     "Title": "Puss in Boots: The Last Wish",
@@ -18,13 +20,21 @@ const App = () => {
     const [movies, setMovies] = useState([]);
     
     useEffect(() => {
-        searchMovies('Avengers');
+        fetch(API_KEY)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data.results);
+            setMovies(data.results)
+        });
+        // searchMovies('Avengers');
     }, []);
 
     const searchMovies = async (title) => {
-        const response = await fetch(`${API_KEY}&s=${title}`);
+        // const response = await fetch(`${API_KEY}&s=${title}`);
+        const response = await fetch(`${API_KEY}`);
         const data = await response.json();
-        setMovies(data.Search);
+        console.log(data);
+        // setMovies(data.Search);
     }
 
     const handleKey = (e) => {
@@ -57,7 +67,7 @@ const App = () => {
                     ? (
                         <div className="movie-container">
                             {movies.map((movie) => {
-                                return <MovieCard movie={movie} />
+                                return <MovieCard movie={movie} key={movie.id} />
                             })}
                         </div>
                     ) : (
