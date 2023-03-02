@@ -9,7 +9,7 @@ const MovieCard = ({movie : {title, poster_path, release_date, vote_average}}) =
                 <p>{release_date}</p>
             </div>
             <div>
-                <img src={API_IMG+poster_path} alt={title} />
+                <img src={poster_path ? API_IMG+poster_path : "https://media.istockphoto.com/id/171302206/id/foto/error-404.jpg?s=612x612&w=0&k=20&c=JbdlRFFxIWtswcgk6J3-a6eQ12JKYm0sAMFiM3-dN7Y="} alt={title} />
             </div>
             <div>
                 <span>{vote_average}</span>

@@ -3,17 +3,8 @@ import './App.css';
 import SearchIcon from './search.svg';
 import MovieCard from "./component/MovieCard";
 
-// const API_KEY = 'http://www.omdbapi.com/?apikey=f7b5edc8';
-// const API_KEY = 'https://api.themoviedb.org/3/movie/550?api_key=097732c509350f650f597a8e0fae68b8';
 const API_KEY = 'https://api.themoviedb.org/3/movie/popular?api_key=097732c509350f650f597a8e0fae68b8';
-
-// const movie = {
-//     "Title": "Puss in Boots: The Last Wish",
-//     "Year": "2022",
-//     "imdbID": "tt3915174",
-//     "Type": "movie",
-//     "Poster": "https://m.media-amazon.com/images/M/MV5BNjMyMDBjMGUtNDUzZi00N2MwLTg1MjItZTk2MDE1OTZmNTYxXkEyXkFqcGdeQXVyMTQ5NjA0NDM0._V1_SX300.jpg"
-// }
+const API_SEARCH = "https://api.themoviedb.org/3/search/movie?api_key=097732c509350f650f597a8e0fae68b8&query";
 
 const App = () => {
     const [search, setSearch] = useState("");
@@ -26,15 +17,13 @@ const App = () => {
             console.log(data.results);
             setMovies(data.results)
         });
-        // searchMovies('Avengers');
     }, []);
 
     const searchMovies = async (title) => {
-        // const response = await fetch(`${API_KEY}&s=${title}`);
-        const response = await fetch(`${API_KEY}`);
+        const response = await fetch(`${API_SEARCH}&query=${title}`);
         const data = await response.json();
-        console.log(data);
-        // setMovies(data.Search);
+        console.log(data.results);
+        setMovies(data.results);
     }
 
     const handleKey = (e) => {
@@ -47,8 +36,7 @@ const App = () => {
 
     return (
         <div className="movie-app">
-            <h1>MondoMovies</h1>
-
+            <h1><a href="/">MondoMovies</a></h1>
             <div className="search-bar">
                 <input 
                     value={search}
