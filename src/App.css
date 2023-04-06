@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,600,600i,800,800i");
 
@@ -9,17 +8,14 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #1b1e23;
-    font-family: 'Roboto Slab', serif;
-}
-
 .movie-app {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
+    background-color: #1b1e23;
+    font-family: 'Roboto Slab', serif;
 }
 
 .movie-app h1 a {
@@ -73,7 +69,6 @@ body {
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 2px rgba(255, 255, 255, .5);
-    cursor: pointer;
     margin: 1rem;
     overflow: hidden;
     position: relative;
@@ -87,24 +82,35 @@ body {
     transform: scale(1.05);
 }
 
-.movie div:nth-of-type(1) {
-    background-color: rgba(0, 0, 0, .8);
-    background-clip: content-box;
-    color: crimson;
-    opacity: 0;
-    padding: 1.2rem 1rem;
+.movie .btn {
+    cursor: pointer;
+    opacity: 1;
+    border-radius: 10px;
+    padding: .5rem;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+    color: #eee;
+    margin: .2rem;
+    opacity: 0;
 }
 
-.movie:hover div:nth-of-type(1) {
+.movie:hover .btn {
     opacity: 1;
 }
 
-.movie div:nth-of-type(2) {
-    height: 100%;
-    width: 100%;
+.movie .btn:hover {
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.movie .btn.info-btn {
+    color: tomato;
+}
+
+.movie .btn.t-btn {
+    color: crimson;
+    margin-right: 55px;
 }
 
 .movie div:nth-of-type(2) img {
@@ -113,27 +119,32 @@ body {
 }
 
 .movie div:nth-of-type(3) {
+    cursor: default;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(91, 91, 91, .9);
+    background-color: rgba(3, 3, 3, .9);
     font-family: Raleway, sans-serif;
-    font-size: 14px;
-    color: #c77014;
-    padding: .6rem;
-    z-index: 9999;
+    padding: .5rem;
 }
 
 .movie div:nth-of-type(3) span {
-    color: #aeaeae;
-    font-size: .8rem;
+    color: #ff6f00;
     font-weight: 600;
-    text-transform: uppercase;
+}
+
+.movie div:nth-of-type(3) h3 {
+    color: #d9005a;
+    font-size: 1rem;
 }
 
 .movie:hover div:nth-of-type(3) {
-    background-color: rgba(91, 91, 91, .5);
+    background-color: rgba(3, 3, 3, .5);
+}
+
+.not-found {
+    min-height: 100vh;
 }
 
 .not-found h2 {
@@ -145,6 +156,7 @@ body {
     font-weight: 600;
     margin-top: 1rem;
     padding: 1rem 2rem;
+    text-align: center;
     width: 90vw;
 }
 
@@ -179,6 +191,11 @@ body {
     .movie div:nth-of-type(3) span {
         font-size: 1rem;
     }
+
+    .not-found h2 {
+        font-size: 1.8rem;
+        width: 70vw;
+    }
 }
 
 @media screen and (min-width:1024px) {
@@ -192,5 +209,10 @@ body {
 
     .movie {
         width: 260px;
+    }
+
+    .not-found h2 {
+        font-size: 1.5rem;
+        width: 50vw;
     }
 }

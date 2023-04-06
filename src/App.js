@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import './App.css';
 import SearchIcon from './search.svg';
 import MovieCard from "./component/MovieCard";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const API_KEY = 'https://api.themoviedb.org/3/movie/popular?api_key=097732c509350f650f597a8e0fae68b8';
 const API_SEARCH = "https://api.themoviedb.org/3/search/movie?api_key=097732c509350f650f597a8e0fae68b8&query";
