@@ -108,10 +108,10 @@
     color: tomato;
 }
 
-.movie .btn.t-btn {
+/* .movie .btn.t-btn {
     color: crimson;
     margin-right: 55px;
-}
+} */
 
 .movie div:nth-of-type(2) img {
     height: 100%;

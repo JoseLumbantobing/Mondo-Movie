@@ -23,7 +23,6 @@ const App = () => {
     const searchMovies = async (title) => {
         const response = await fetch(`${API_SEARCH}&query=${title}`);
         const data = await response.json();
-        console.log(data.results);
         setMovies(data.results);
     }
 
