@@ -4,7 +4,7 @@ import SearchIcon from './search.svg';
 import MovieCard from "./component/MovieCard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const API_KEY = 'https://api.themoviedb.org/3/movie/popular?api_key=097732c509350f650f597a8e0fae68b8';
+const API_POPULAR = 'https://api.themoviedb.org/3/movie/popular?api_key=097732c509350f650f597a8e0fae68b8';
 const API_SEARCH = "https://api.themoviedb.org/3/search/movie?api_key=097732c509350f650f597a8e0fae68b8&query";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
     const [movies, setMovies] = useState([]);
     
     useEffect(() => {
-        fetch(API_KEY)
+        fetch(API_POPULAR)
         .then((res) => res.json())
         .then((data) => {
             console.log(data.results);
@@ -56,7 +56,7 @@ const App = () => {
                     ? (
                         <div className="movie-container">
                             {movies.map((movie) => {
-                                return <MovieCard movie={movie} key={movie.id} />
+                                return <MovieCard key={movie.id} movie={movie} />
                             })}
                         </div>
                     ) : (
